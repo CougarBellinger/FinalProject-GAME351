@@ -35,11 +35,11 @@ public class Robortmove : MonoBehaviour
 
             transform.position = targetPosition;
 
-            animator.SetBool("isRunning", true);
+            animator.speed = 1f;
         }
         else
         {
-            animator.SetBool("isRunning", false);
+            animator.speed = 0f;
         }
     }
 }
