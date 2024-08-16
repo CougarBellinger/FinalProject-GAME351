@@ -1055,3 +1055,15 @@ Received Import Request.
   path: Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials/asphalt_2-5_tracks.mat
   artifactKey: Guid(f0c93f171856041ec8f629c150931ba5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials/asphalt_2-5_tracks.mat using Guid(f0c93f171856041ec8f629c150931ba5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c643e555051ceeb1780a6413461d643') in 1.075917 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 647.632463 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Height.png
+  artifactKey: Guid(c24c005cb31b0514a85361709b63fa93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Height.png using Guid(c24c005cb31b0514a85361709b63fa93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50045d2f651daa0ad4947da1c0d5052b') in 0.682977 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000082 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Roughness.png
+  artifactKey: Guid(7c71c756b680c1a47b27345dccbbc51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Roughness.png using Guid(7c71c756b680c1a47b27345dccbbc51f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c150afe0fbf73db0202c0cd892f4f2a') in 0.010785 seconds 

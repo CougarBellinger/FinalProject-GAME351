@@ -1085,3 +1085,45 @@ Received Import Request.
   path: Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials
   artifactKey: Guid(b87bec4eda504d6498cf0be335a99277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials using Guid(b87bec4eda504d6498cf0be335a99277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfe62eec3ed9be5017f70a6378623749') in 0.055189 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 634.305892 seconds.
+  path: Assets/Imports/Environment/BrokenVector/LowPolyTreePack
+  artifactKey: Guid(762d9af53e4f12743bc5e56e83602567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/BrokenVector/LowPolyTreePack using Guid(762d9af53e4f12743bc5e56e83602567) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bc61b1b0f7b950f6e7d548c6d2a32f0') in 0.005017 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.617604 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Materials
+  artifactKey: Guid(855350d72edd5b546aba24877b32789a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Materials using Guid(855350d72edd5b546aba24877b32789a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '016e19b09b3027c75407df528b03f1a3') in 0.001702 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.654830 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Materials/Stylize_Grass_diffuse.mat
+  artifactKey: Guid(516e6f11e8de6624eb6be4bac8c14555) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Materials/Stylize_Grass_diffuse.mat using Guid(516e6f11e8de6624eb6be4bac8c14555) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad5f898e5ef3e3e5586a3ec47bdb5758') in 0.618259 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.386350 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Ambient_Occlusion.png
+  artifactKey: Guid(33ba5140ff8350742a9be1b79eeefd82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Ambient_Occlusion.png using Guid(33ba5140ff8350742a9be1b79eeefd82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a99ef178729eedeade8c97221a89b52') in 0.689385 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Normal.png
+  artifactKey: Guid(9e91cd5bde426714d9f0ef165f143d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Environment/LowlyPoly/Stylized Grass Texture/Textures/Vol_42_1_Normal.png using Guid(9e91cd5bde426714d9f0ef165f143d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb99a783af73055b89636a939b1d0c94') in 0.081946 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.499534 seconds.
+  path: Assets/Imports/Characters/EnemyRobots/Materials/CannonMachine
+  artifactKey: Guid(6e7ce529afd1f0e40bf4aa4a0f8c757d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Characters/EnemyRobots/Materials/CannonMachine using Guid(6e7ce529afd1f0e40bf4aa4a0f8c757d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86ab57f292e16694140c5401e9287160') in 0.001190 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.660399 seconds.
+  path: Assets/Imports/Characters/EnemyRobots/Materials/CannonMachine/CannonMachine
+  artifactKey: Guid(0425c5bad57de2540bd99b51d1fec56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Imports/Characters/EnemyRobots/Materials/CannonMachine/CannonMachine using Guid(0425c5bad57de2540bd99b51d1fec56e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17c3fb9a55646dab9976044ce792f571') in 0.001108 seconds 
