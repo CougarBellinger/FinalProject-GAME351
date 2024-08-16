@@ -1079,3 +1079,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4703.608478 seconds.
+  path: Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials
+  artifactKey: Guid(b87bec4eda504d6498cf0be335a99277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Versatile Studio Assets/Demo City By Versatile Studio/Materials using Guid(b87bec4eda504d6498cf0be335a99277) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dfe62eec3ed9be5017f70a6378623749') in 0.055189 seconds 
