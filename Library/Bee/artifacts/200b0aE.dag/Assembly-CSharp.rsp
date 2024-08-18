@@ -352,7 +352,8 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Robot_Soldier/Animations/Robortmove.cs"
+"Assets/Robot_Soldier/Animations/Robotmove.cs"
+"Assets/Robot_Soldier/Animations/RobotShoot.cs"
 -langversion:9.0
 
 /deterministic
