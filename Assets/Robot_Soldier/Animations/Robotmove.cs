@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Robortmove : MonoBehaviour
+public class Robotmove : MonoBehaviour
 {
     public float speed = 3f;
     public float raycastHeight = 1f;
