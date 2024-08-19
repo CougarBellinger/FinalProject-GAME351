@@ -16,6 +16,7 @@ public class Musket : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.volume = 0.5f;
         audioSource.spatialBlend = 0f;
+        audioSource.loop = true;
     }
 
     void Update()
@@ -28,7 +29,8 @@ public class Musket : MonoBehaviour
                 if (audioSource != null)
                 {
                     isFiring = true;
-                    audioSource.PlayOneShot(fireSound); 
+                    audioSource.clip = fireSound;
+                    audioSource.Play();
                 }
             }
         }
