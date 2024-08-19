@@ -355,6 +355,7 @@
 "Assets/Imports/Characters/Robot_Soldier/Animations/Musket.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/Robotmove.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/WeaponSwitch.cs"
+"Assets/Scripts/MeshToTerrain.cs"
 -langversion:9.0
 
 /deterministic
