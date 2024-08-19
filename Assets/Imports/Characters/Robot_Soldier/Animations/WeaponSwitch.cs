@@ -25,16 +25,17 @@ public class WeaponSwitch : MonoBehaviour
 
     void SwitchWeapon(int weaponNumber)
     {
-        switch (weaponNumber)
+        if (weaponNumber == 1)
         {
-            case 1:
-                weapon1.SetActive(true);
-                weapon2.SetActive(false);
-                break;
-            case 2:
-                weapon1.SetActive(false);
-                weapon2.SetActive(true);
-                break;
+            weapon1.SetActive(true);
+            weapon2.SetActive(false);
+            Debug.Log("切换到武器 1,已禁用 weapon2");
+        }
+        else if (weaponNumber == 2)
+        {
+            weapon1.SetActive(false);
+            weapon2.SetActive(true);
+            Debug.Log("切换到武器 2,已禁用 weapon1");
         }
     }
 }
