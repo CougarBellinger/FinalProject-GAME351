@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Muzzle: {fileID: 1571678391}
-  fireBurstPrefab: {fileID: 0}
-  fireSound: {fileID: 0}
+  fireBurstPrefab: {fileID: 1201496579333166, guid: b2c4ed01763e6084b84f253dd2e03b75, type: 3}
+  fireSound: {fileID: 8300000, guid: 25c7c0919d42a6d4f840e590e9779379, type: 3}
 --- !u!1001 &472199519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,6 +150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1306203453793218, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
+      propertyPath: m_Name
+      value: Weapon1
+      objectReference: {fileID: 0}
     - target: {fileID: 1997645269869836, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
       propertyPath: m_Name
       value: Robot_Soldier_Blue
@@ -244,6 +248,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4468519549282688, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
   m_PrefabInstance: {fileID: 472199519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &472199525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472199520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed7ccc3e07c2a42b2ae3cd097d7cb3cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon1: {fileID: 1183812}
+  weapon2: {fileID: 1023219384187226, guid: 2765330cd88254940b55be2f4a25e575, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +291,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.28429073, g: 0.28221786, b: 0.3962264, a: 1}
-  m_Intensity: 1.39
+  m_Intensity: 10
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -586,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571678390}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0.79, z: 2.47}
+  m_LocalPosition: {x: -0.388, y: 1.249, z: 1.157}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

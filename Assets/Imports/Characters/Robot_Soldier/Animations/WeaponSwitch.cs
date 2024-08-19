@@ -3,37 +3,38 @@ using UnityEngine;
 public class WeaponSwitch : MonoBehaviour
 {
     public GameObject weapon1;
-    public GameObject weapon2Prefab;
-    private GameObject currentWeapon;
+    public GameObject weapon2;
 
     void Start()
     {
-        if (weapon1 != null)
-        {
-            currentWeapon = weapon1;
-        }
+        weapon1.SetActive(true);
+        weapon2.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SwitchWeapon();
+            SwitchWeapon(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwitchWeapon(2);
         }
     }
 
-    void SwitchWeapon()
+    void SwitchWeapon(int weaponNumber)
     {
-        if (currentWeapon != null)
+        switch (weaponNumber)
         {
-            Destroy(currentWeapon);
-        }
-
-        if (weapon2Prefab != null)
-        {
-            currentWeapon = Instantiate(weapon2Prefab, transform);
-            currentWeapon.transform.localPosition = Vector3.zero;
-            currentWeapon.transform.localRotation = Quaternion.identity;
+            case 1:
+                weapon1.SetActive(true);
+                weapon2.SetActive(false);
+                break;
+            case 2:
+                weapon1.SetActive(false);
+                weapon2.SetActive(true);
+                break;
         }
     }
 }

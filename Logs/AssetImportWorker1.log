@@ -957,3 +957,6 @@ Received Import Request.
   path: Assets/Weapons_MassConfusion/SYNTax_P40/Meshes/WPN_Silencer.FBX
   artifactKey: Guid(108ab1655a2150e4cb2d69472ea07a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Weapons_MassConfusion/SYNTax_P40/Meshes/WPN_Silencer.FBX using Guid(108ab1655a2150e4cb2d69472ea07a75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9897088cb32b4ac8d27cc2967d2c232a') in 0.082592 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
