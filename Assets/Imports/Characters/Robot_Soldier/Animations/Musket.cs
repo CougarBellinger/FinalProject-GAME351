@@ -4,7 +4,7 @@ public class Musket : MonoBehaviour
 {
     public Transform Muzzle;
     public GameObject fireBurstPrefab;
-    public AudioClip flameSound;
+    public AudioClip fireSound; // 声明火焰声音的音频剪辑
 
     private GameObject activeFireBurst;
     private ParticleSystem fireBurstSystem;
@@ -13,6 +13,7 @@ public class Musket : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
+        fireSound = Resources.Load<AudioClip>("Assets/Audio/FireSound"); // 请将"Assets/Audio/FireSound"替换为您实际的音频文件路径
     }
 
     void Update()
@@ -20,7 +21,7 @@ public class Musket : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StartShooting();
-            audioSource.PlayOneShot(fireSound);
+            audioSource.PlayOneShot(fireSound); 
         }
         else if (Input.GetMouseButtonUp(0))
         {
