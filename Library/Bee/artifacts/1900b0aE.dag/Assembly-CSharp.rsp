@@ -358,6 +358,7 @@
 "Assets/Imports/Characters/Robot_Soldier/Animations/RobotController.cs"
 "Assets/Imports/FreeOpenBuilding_1.1.2/FOB_1/Scripts/DoorMech.cs"
 "Assets/Imports/FreeOpenBuilding_1.1.2/FOB_1/Scripts/DrawerMech.cs"
+"Assets/Scripts/CharacterMovement.cs"
 "Assets/Scripts/EnemyAI.cs"
 -langversion:9.0
 
