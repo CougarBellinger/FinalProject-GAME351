@@ -29,13 +29,11 @@ public class WeaponSwitch : MonoBehaviour
         {
             weapon1.SetActive(true);
             weapon2.SetActive(false);
-            Debug.Log("切换到武器 1,已禁用 weapon2");
         }
         else if (weaponNumber == 2)
         {
             weapon1.SetActive(false);
             weapon2.SetActive(true);
-            Debug.Log("切换到武器 2,已禁用 weapon1");
         }
     }
 }
