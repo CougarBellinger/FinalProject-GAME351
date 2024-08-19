@@ -357,6 +357,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Imports/Characters/Robot_Soldier/Animations/Musket.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/RobotController.cs"
+"Assets/Imports/Characters/Robot_Soldier/Animations/WeaponSwitch.cs"
 "Assets/Scripts/EnemyAI.cs"
 -langversion:9.0
 

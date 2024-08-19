@@ -237,14 +237,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f19d38f573ef45cb9d51833ca6bb167, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   movementSpeed: 5
   mouseSensitivity: 2
   cameraTransform: {fileID: 963194228}
-=======
-  speed: 3
-  raycastHeight: 1
->>>>>>> 3dbd26f8f307273970e59f14417d4dbe1b97b860
 --- !u!4 &472199523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4468519549282688, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
@@ -422,11 +417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
   m_LocalPosition: {x: 246.57, y: 1.3, z: 206.48}
-=======
-  m_LocalPosition: {x: 246.57, y: 1.091, z: 206.744}
->>>>>>> 3dbd26f8f307273970e59f14417d4dbe1b97b860
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
