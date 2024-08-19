@@ -5,7 +5,7 @@ public class RobotController : MonoBehaviour
     public float movementSpeed = 5f;
     public float mouseSensitivity = 2f;
     public Transform cameraTransform;
-    public LayerMask terrainLayer; // 用于定义地形的层
+    public LayerMask terrainLayer; 
 
     private Animator animator;
     private bool isMoving;
