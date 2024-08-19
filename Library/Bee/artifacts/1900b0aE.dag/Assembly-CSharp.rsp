@@ -353,8 +353,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Imports/Characters/Robot_Soldier/Animations/Musket.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/Robotmove.cs"
-"Assets/Imports/Characters/Robot_Soldier/Animations/RobotShoot.cs"
 "Assets/Scripts/MeshToTerrain.cs"
 -langversion:9.0
 
