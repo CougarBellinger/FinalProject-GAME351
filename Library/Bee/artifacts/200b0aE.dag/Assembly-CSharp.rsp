@@ -354,6 +354,8 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/FreeOpenBuilding_1.1.2/FOB_1/Scripts/DoorMech.cs"
+"Assets/FreeOpenBuilding_1.1.2/FOB_1/Scripts/DrawerMech.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/Musket.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/RobotController.cs"
 "Assets/Imports/Characters/Robot_Soldier/Animations/WeaponSwitch.cs"
