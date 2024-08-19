@@ -338,3 +338,6 @@ Received Import Request.
   path: Assets/Weapons_MassConfusion/SYNTax_P40/Prefabs/Weapon2.prefab
   artifactKey: Guid(808a421ae5a294a53a75d641c4ad5652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Weapons_MassConfusion/SYNTax_P40/Prefabs/Weapon2.prefab using Guid(808a421ae5a294a53a75d641c4ad5652) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f34ec865003988a61f177d2234f4c77') in 0.046669 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
