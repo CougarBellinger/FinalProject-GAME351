@@ -4,15 +4,23 @@ public class Musket : MonoBehaviour
 {
     public Transform Muzzle;
     public GameObject fireBurstPrefab;
+    public AudioClip flameSound;
 
     private GameObject activeFireBurst;
     private ParticleSystem fireBurstSystem;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+    }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
             StartShooting();
+            audioSource.PlayOneShot(fireSound);
         }
         else if (Input.GetMouseButtonUp(0))
         {
