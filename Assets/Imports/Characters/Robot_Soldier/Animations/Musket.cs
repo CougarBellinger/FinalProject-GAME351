@@ -3,31 +3,55 @@ using UnityEngine;
 public class Musket : MonoBehaviour
 {
     public Transform Muzzle;
-    public GameObject fireParticlePrefab;
-    public float fireParticleDuration = 1.0f;
+    public GameObject fireBurstPrefab;
+
+    private GameObject activeFireBurst;
+    private ParticleSystem fireBurstSystem;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Shoot();
+            StartShooting();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            StopShooting();
+        }
+
+        if (activeFireBurst!= null)
+        {
+            activeFireBurst.transform.position = Muzzle.position;
+            activeFireBurst.transform.rotation = Muzzle.rotation;
         }
     }
 
-    void Shoot()
+    void StartShooting()
     {
-        if (Muzzle != null)
+        if (Muzzle!= null)
         {
-            CheckAndInstantiateFireParticle();
+            if (fireBurstPrefab!= null)
+            {
+                activeFireBurst = Instantiate(fireBurstPrefab, Muzzle.position, Muzzle.rotation);
+                fireBurstSystem = activeFireBurst.GetComponent<ParticleSystem>();
+                if (fireBurstSystem!= null)
+                {
+                    fireBurstSystem.Play();
+                }
+            }
         }
     }
 
-    void CheckAndInstantiateFireParticle()
+    void StopShooting()
     {
-        if (fireParticlePrefab != null)
+        if (fireBurstSystem!= null)
         {
-            GameObject fireParticle = Instantiate(fireParticlePrefab, Muzzle.position, Muzzle.rotation);
-            Destroy(fireParticle, fireParticleDuration);
+            fireBurstSystem.Stop(true); 
+            Debug.Log("Attempting to destroy burst.");
+            Destroy(activeFireBurst);
+            Debug.Log("Burst destroyed.");
+            fireBurstSystem = null;
+            activeFireBurst = null;
         }
     }
 }
