@@ -16,7 +16,7 @@ public class Musket : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (!fireBurst.isPlaying)
             {
@@ -25,17 +25,6 @@ public class Musket : MonoBehaviour
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
-            }
-        }
-        else
-        {
-            if (fireBurst.isPlaying)
-            {
-                fireBurst.Stop();
-            }
-            if (audioSource.isPlaying)
-            {
-                audioSource.Stop();
             }
         }
     }
