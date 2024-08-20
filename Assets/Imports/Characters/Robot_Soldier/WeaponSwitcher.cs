@@ -12,7 +12,7 @@ public class WeaponSwitcher : MonoBehaviour
     public Sprite defaultWeaponSprite;
 
     private GameObject currentWeapon;
-    private Transform rightHandMiddle1;
+    private Transform rightHandPinky4;
     private Image weaponUIImage;
 
     void Start()
@@ -22,7 +22,7 @@ public class WeaponSwitcher : MonoBehaviour
         defaultWeapon.SetActive(true);
         currentWeapon = defaultWeapon;
 
-        rightHandMiddle1 = GameObject.Find("RightHandMiddle4").transform;
+        rightHandPinky4 = GameObject.Find("RightHandPinky4").transform;
         weaponUIImage = GameObject.Find("Weapon").GetComponent<Image>();
 
         weaponUIImage.sprite = defaultWeaponSprite;
@@ -36,7 +36,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchWeapon(shotgun, shotgunSprite);
+            SwitchWeapon(shotgun, shotgunSprite); 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -63,8 +63,8 @@ public class WeaponSwitcher : MonoBehaviour
     {
         if (currentWeapon != null)
         {
-            currentWeapon.transform.position = rightHandMiddle1.position;
-            currentWeapon.transform.rotation = rightHandMiddle1.rotation;
+            currentWeapon.transform.position = rightHandRing4.position;
+            currentWeapon.transform.rotation = rightHandRing4.rotation;
         }
     }
 }
