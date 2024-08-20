@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponSwitcher : MonoBehaviour
 {
@@ -6,57 +7,61 @@ public class WeaponSwitcher : MonoBehaviour
     public GameObject shotgun;
     public GameObject defaultWeapon;
 
+    public Sprite swordSprite;
+    public Sprite shotgunSprite;
+    public Sprite defaultWeaponSprite;
+
     private GameObject currentWeapon;
     private Transform rightHandMiddle1;
+    private Image weaponUIImage;
 
     void Start()
     {
-        currentWeapon = defaultWeapon;
         sword.SetActive(false);
-        Debug.Log("Setting sword inactive.");
         shotgun.SetActive(false);
         defaultWeapon.SetActive(true);
+        currentWeapon = defaultWeapon;
+
         rightHandMiddle1 = GameObject.Find("RightHandMiddle4").transform;
+        weaponUIImage = GameObject.Find("Weapon").GetComponent<Image>();
+
+        weaponUIImage.sprite = defaultWeaponSprite;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SwitchWeapon(defaultWeapon);
+            SwitchWeapon(defaultWeapon, defaultWeaponSprite);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchWeapon(shotgun);
+            SwitchWeapon(shotgun, shotgunSprite);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SwitchWeapon(sword);
+            SwitchWeapon(sword, swordSprite);
         }
 
         FollowHand();
     }
 
-    void SwitchWeapon(GameObject newWeapon)
+    void SwitchWeapon(GameObject newWeapon, Sprite newWeaponSprite)
     {
-        if (currentWeapon!= null)
+        if (currentWeapon != null)
         {
             currentWeapon.SetActive(false);
-            Debug.Log("Disabling previous weapon. Current weapon active status: " + currentWeapon.activeSelf);
         }
 
         newWeapon.SetActive(true);
         currentWeapon = newWeapon;
 
-        if (currentWeapon == sword)
-        {
-            Debug.Log("Switching to sword. Sword active status: " + sword.activeSelf);
-        }
+        weaponUIImage.sprite = newWeaponSprite;
     }
 
     void FollowHand()
     {
-        if (currentWeapon!= null)
+        if (currentWeapon != null)
         {
             currentWeapon.transform.position = rightHandMiddle1.position;
             currentWeapon.transform.rotation = rightHandMiddle1.rotation;
