@@ -5,14 +5,16 @@ using UnityEngine;
 public class fireSound : MonoBehaviour
 {
     float maxDistance = 100;
-    float RealDistance = Vector3.distance (AuduioSource.transform.position, AudioListener.transform.position);
-    float DistanceFactor = 1 - (RealDistance/MaxDistance);
+    float RealDistance = 0;
+    float DistanceFactor = o;
 
     // Start is called before the first frame update
     void Start()
     {
         AudioSource.Play();
-    }
+        realDistance = Vector3.distance(AudioSource.transform.position, AudioListener.transform.position);
+        DistanceFactor = 1 - (RealDistanc/MaxDistance);
+    }   
 
     // Update is called once per frame
     void Update()
