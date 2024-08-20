@@ -6,6 +6,7 @@ public class CharacterAnimation : MonoBehaviour
 {
     public Animator playerAnim;
     public CharacterMovement playerMovement;
+    public bool isBusy;
 
     void Update ()
     {
@@ -39,6 +40,12 @@ public class CharacterAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             playerAnim.SetTrigger("walkRight");
+            playerAnim.ResetTrigger("idle");
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            playerAnim.SetTrigger("shootRifle");
             playerAnim.ResetTrigger("idle");
         }
 
