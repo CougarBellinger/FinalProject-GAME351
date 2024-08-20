@@ -7,14 +7,8 @@ public class CharacterAnimation : MonoBehaviour
     public Animator playerAnim;
     public CharacterMovement playerMovement;
 
-    // void Start ()
-    // {
-        
-    // }
-
     void Update ()
     {
-
         if (Input.GetKeyDown(KeyCode.W))
         {
             playerAnim.SetTrigger("walkFront");
@@ -22,7 +16,6 @@ public class CharacterAnimation : MonoBehaviour
         }
 
         
-
         //*******************************
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -31,7 +24,6 @@ public class CharacterAnimation : MonoBehaviour
             playerAnim.ResetTrigger("idle");
         }
 
-        
 
         //*******************************
 
@@ -41,7 +33,6 @@ public class CharacterAnimation : MonoBehaviour
             playerAnim.ResetTrigger("idle");
         }
 
-        
 
         //*******************************
 
@@ -51,7 +42,10 @@ public class CharacterAnimation : MonoBehaviour
             playerAnim.ResetTrigger("idle");
         }
 
-        
+        if(!playerMovement.isWalking)
+        {
+            playerAnim.SetTrigger("idle");
+        }
 
     }
 }
