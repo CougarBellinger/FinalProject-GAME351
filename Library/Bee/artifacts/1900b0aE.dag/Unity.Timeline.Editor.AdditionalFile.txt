@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-D:\Unity\Unity Projects\GAME 351\FinalProject-GAME351
-=======
-C:\Users\couga\Documents\Classes-Local\GAME-351\FinalProject-GAME351
->>>>>>> 642cf01728356830572a056b1f4f2b3a99745a74
