@@ -140,9 +140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d73e5ad7c97a84f64b63b5d44063e3bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Muzzle: {fileID: 1571678391}
-  fireBurstPrefab: {fileID: 0}
-  fireSound: {fileID: 0}
 --- !u!1001 &282394617
 PrefabInstance:
   m_ObjectHideFlags: 0

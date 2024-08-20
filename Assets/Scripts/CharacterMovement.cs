@@ -21,15 +21,9 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        //isWalking = (Vector3.magnitude(move) == 0);
-
-        if (isWalking && Input.GetKey(KeyCode.LeftShift))
-        {
-            movementSpeed *= 2f;
-        }
-
-        character.Move(move * Time.deltaTime * movementSpeed);
         
+        character.Move(move * Time.deltaTime * movementSpeed);
+
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
