@@ -5,45 +5,38 @@ public class Musket : MonoBehaviour
     public ParticleSystem fireBurst;
     public AudioClip fireSound;
 
-    private bool isFiring = false;
     private AudioSource audioSource;
 
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = fireSound;
+        audioSource.loop = true;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            StartFiring();
+            if (!fireBurst.isPlaying)
+            {
+                fireBurst.Play();
+            }
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else
         {
-            StopFiring();
-        }
-    }
-
-    void StartFiring()
-    {
-        if (!isFiring)
-        {
-            isFiring = true;
-            fireBurst.Play();
-            audioSource.Play();
-        }
-    }
-
-    void StopFiring()
-    {
-        if (isFiring)
-        {
-            isFiring = false;
-            fireBurst.Stop();
-            audioSource.Stop();
+            if (fireBurst.isPlaying)
+            {
+                fireBurst.Stop();
+            }
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
     }
 }
