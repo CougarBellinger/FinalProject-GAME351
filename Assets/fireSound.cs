@@ -1,37 +1,53 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class fireSound : MonoBehaviour
+public class FireSound : MonoBehaviour
 {
     public AudioClip fireEffect;
-    public GameObject mechanicalHunter;
-    
+    public GameObject tinyFire;
+
     private AudioSource audioSource;
 
-    public float maxDistance = 100;
-    float realDistance = 0;
-    float distanceFactor = 0;
+    public float positionThreshold = 0.05f;
 
-    // Start is called before the first frame update
     void Start()
     {
+        if (tinyFire != null)
+        {
+            AudioSource tinyFireAudio = tinyFire.GetComponent<AudioSource>();
+            if (tinyFireAudio != null)
+            {
+                fireEffect = tinyFireAudio.clip;
+            }
+        }
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = fireEffect;
-        audioSource.loop= true;
+        audioSource.loop = true;
         audioSource.Play();
-        realDistance = Vector3.Distance(audioSource.transform.position, mechanicalHunter.transform.position);
-        distanceFactor = 1 - (realDistance/maxDistance);
-    }   
+    }
 
-    // Update is called once per frame
     void Update()
     {
-       if(distanceFactor > 0){
-        audioSource.volume = distanceFactor;
-       } 
-       else{
-        audioSource.volume = 0;
-       }
+        if (tinyFire != null)
+        {
+            Vector3 positionDifference = transform.position - tinyFire.transform.position;
+
+            if (Mathf.Abs(positionDifference.x) > positionThreshold || 
+                Mathf.Abs(positionDifference.y) > positionThreshold || 
+                Mathf.Abs(positionDifference.z) > positionThreshold)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+            }
+            else
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+            }
+        }
     }
 }
