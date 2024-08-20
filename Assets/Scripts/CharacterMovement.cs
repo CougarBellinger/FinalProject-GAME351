@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController character;
 
     private float walkSpeed = 4f;
-    private float runSpeed = 8f;
+    private float runSpeed = 6f;
 
     private float sensitivity = 100f;
 
