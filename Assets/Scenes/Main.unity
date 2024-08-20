@@ -137,9 +137,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183812}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d73e5ad7c97a84f64b63b5d44063e3bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b24fd89f5a604c598e7241ca2185490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireBurst: {fileID: 198447755917049832, guid: b2c4ed01763e6084b84f253dd2e03b75, type: 3}
+  fireSound: {fileID: 8300000, guid: 25c7c0919d42a6d4f840e590e9779379, type: 3}
 --- !u!1001 &282394617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -744,6 +746,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4468519549282688, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
   m_PrefabInstance: {fileID: 472199519}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &700136478 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000011671376998, guid: 28fbc97a4e7e92144af43a4bd05be737, type: 3}
+  m_PrefabInstance: {fileID: 901734012}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &700136481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700136478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c3fff48ca8cb74d88ea271dd2f7660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffect: {fileID: 8300000, guid: f0e080bf2a212bc4ba9e09b27c42714b, type: 3}
+  tinyFire: {fileID: 700136478}
+  stopPositionThreshold: {x: 0.05, y: 0.05, z: 0.05}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

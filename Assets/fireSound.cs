@@ -1,22 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class fireSound : MonoBehaviour
+public class FireSound : MonoBehaviour
 {
     public AudioClip fireEffect;
     public GameObject tinyFire;
 
     private AudioSource audioSource;
 
-    public float maxDistance = 100;
-    float realDistance = 0;
-    float distanceFactor = 0;
-    float stepDecrease = 10;
+    public float positionThreshold = 0.05f;
 
     void Start()
     {
-        fireEffect = tinyFire.GetComponent<AudioSource>().clip;
+        if (tinyFire != null)
+        {
+            AudioSource tinyFireAudio = tinyFire.GetComponent<AudioSource>();
+            if (tinyFireAudio != null)
+            {
+                fireEffect = tinyFireAudio.clip;
+            }
+        }
+
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = fireEffect;
         audioSource.loop = true;
@@ -25,15 +28,26 @@ public class fireSound : MonoBehaviour
 
     void Update()
     {
-        realDistance = Vector3.Distance(audioSource.transform.position, tinyFire.transform.position);
-        distanceFactor = Mathf.Max(0, 100 - realDistance) / 10;
-        if (distanceFactor > 0)
+        if (tinyFire != null)
         {
-            audioSource.volume = distanceFactor;
-        }
-        else
-        {
-            audioSource.volume = 0;
+            Vector3 positionDifference = transform.position - tinyFire.transform.position;
+
+            if (Mathf.Abs(positionDifference.x) > positionThreshold || 
+                Mathf.Abs(positionDifference.y) > positionThreshold || 
+                Mathf.Abs(positionDifference.z) > positionThreshold)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+            }
+            else
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.Play();
+                }
+            }
         }
     }
 }
