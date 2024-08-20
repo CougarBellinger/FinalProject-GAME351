@@ -13,7 +13,15 @@ public class BGM : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = audioSource.GetComponent<AudioSource>();
+
+        if (defaultMusic != null){
+            if (audioSource != null)
+            {
+                defaultMusic = audioSource.clip;
+            }
+        }
+
         audioSource.clip = defaultMusic;
         audioSource.loop = true;
         audioSource.Play();
