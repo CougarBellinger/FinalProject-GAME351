@@ -6,44 +6,64 @@ public class CharacterMovement : MonoBehaviour
 {
 
     private CharacterController character;
-    public float movementSpeed = 1f;
+
+    private float walkSpeed = 4f;
+
+    private float runSpeed = 6f;
+
     public float sensitivity = 100f;
+
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
+
     public bool isWalking = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         character = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        float speed;
+
+        //Sprint
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runSpeed;
+        }
+        else
+        {
+            speed = walkSpeed;
+        }
+
+        //Apply motion
         Vector3 move = transform.right * x + transform.forward * z;
+        move = move.normalized * speed;
+        character.Move(move * Time.deltaTime);
 
-        character.Move(move * Time.deltaTime * movementSpeed);
-
-        if (character.velocity != Vector3.zero)
+        //Determine bool of isWalking
+        if (Mathf.Abs(character.velocity.magnitude) <= 0.001f)
+        {
+            isWalking = false;
+        }
+        else
         {
             isWalking = true;
         }
 
-        else
-        {
-            isWalking = false;
-        }
-        
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer) && character.isGrounded)
         {
             Vector3 newPosition = transform.position;
             newPosition.y = hit.point.y;
             transform.position = newPosition;
         }
     }
+
+
 }
