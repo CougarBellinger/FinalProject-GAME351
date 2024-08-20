@@ -5,33 +5,35 @@ using UnityEngine;
 public class fireSound : MonoBehaviour
 {
     public AudioClip fireEffect;
-    public GameObject mechanicalHunter;
-    
+    public GameObject tinyFire;
+
     private AudioSource audioSource;
 
     public float maxDistance = 100;
     float realDistance = 0;
     float distanceFactor = 0;
+    float stepDecrease = 10;
 
-    // Start is called before the first frame update
     void Start()
     {
+        fireEffect = tinyFire.GetComponent<AudioSource>().clip;
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = fireEffect;
-        audioSource.loop= true;
+        audioSource.loop = true;
         audioSource.Play();
-        realDistance = Vector3.Distance(audioSource.transform.position, mechanicalHunter.transform.position);
-        distanceFactor = 1 - (realDistance/maxDistance);
-    }   
+    }
 
-    // Update is called once per frame
     void Update()
     {
-       if(distanceFactor > 0){
-        audioSource.volume = distanceFactor;
-       } 
-       else{
-        audioSource.volume = 0;
-       }
+        realDistance = Vector3.Distance(audioSource.transform.position, tinyFire.transform.position);
+        distanceFactor = Mathf.Max(0, 100 - realDistance) / 10;
+        if (distanceFactor > 0)
+        {
+            audioSource.volume = distanceFactor;
+        }
+        else
+        {
+            audioSource.volume = 0;
+        }
     }
 }
