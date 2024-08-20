@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public float movementSpeed = 1f;
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
-    private bool isWalking = false;
+    public bool isWalking = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +21,19 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        
+
         character.Move(move * Time.deltaTime * movementSpeed);
+
+        if (character.velocity != Vector3.zero)
+        {
+            isWalking = true;
+        }
+
+        else
+        {
+            isWalking = false;
+        }
+        
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))

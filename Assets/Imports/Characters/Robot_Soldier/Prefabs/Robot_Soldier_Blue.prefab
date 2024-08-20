@@ -2835,6 +2835,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 2147483647
+  isWalking: 0
 --- !u!143 &7059313039079013974
 CharacterController:
   m_ObjectHideFlags: 0
