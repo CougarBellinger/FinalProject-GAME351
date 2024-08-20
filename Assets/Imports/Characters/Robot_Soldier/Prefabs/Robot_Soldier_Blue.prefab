@@ -2764,6 +2764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4468519549282688}
   - component: {fileID: 95812470430208240}
+  - component: {fileID: 6426920847399860898}
   - component: {fileID: 6335373460471604537}
   - component: {fileID: 7059313039079013974}
   - component: {fileID: 876764208762774571}
@@ -2818,6 +2819,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6426920847399860898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997645269869836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9896b4344dbb0f444bab581aef6653e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 100
+  character: {fileID: 4468519549282688}
 --- !u!114 &6335373460471604537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2831,6 +2846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  sensitivity: 20
   groundCheckDistance: 20
   groundLayer:
     serializedVersion: 2
@@ -2882,3 +2898,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 95812470430208240}
   playerMovement: {fileID: 6335373460471604537}
+  isBusy: 0

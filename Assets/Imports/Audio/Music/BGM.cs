@@ -14,14 +14,14 @@ public class BGM : MonoBehaviour
     void Start()
     {
         audioSource = audioSource.GetComponent<AudioSource>();
-        if (defaultMusic != null)
-        {
-            audioSource = audioSource.GetComponent<AudioSource>();
+
+        if (defaultMusic != null){
             if (audioSource != null)
             {
                 defaultMusic = audioSource.clip;
             }
         }
+
         audioSource.clip = defaultMusic;
         audioSource.loop = true;
         audioSource.Play();
@@ -30,10 +30,8 @@ public class BGM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( (Input.GetMouseButton(0)) || (Input.GetKeyDown(KeyCode.F)) || (Input.GetKeyDown(KeyCode.Q)) )
-        {
-            if(!hasSwitchedToFightMusic)
-        {
+        if( (Input.GetMouseButton(0)) || (Input.GetKeyDown(KeyCode.F)) || (Input.GetKeyDown(KeyCode.Q)) ){
+            if(!hasSwitchedToFightMusic){
                 SwitchToFightMusic();
                 hasSwitchedToFightMusic = true;
             }
@@ -58,3 +56,4 @@ private void SwitchToDefaultMusic(){
 }
 
 }
+

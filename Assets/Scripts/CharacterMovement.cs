@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     private CharacterController character;
     public float movementSpeed = 1f;
+    public float sensitivity = 100f;
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
     public bool isWalking = false;
@@ -20,7 +21,10 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
 
         character.Move(move * Time.deltaTime * movementSpeed);
 
@@ -34,8 +38,6 @@ public class CharacterMovement : MonoBehaviour
             isWalking = false;
         }
         
-        
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
