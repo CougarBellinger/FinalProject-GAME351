@@ -8,10 +8,9 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController character;
 
     private float walkSpeed = 4f;
+    private float runSpeed = 8f;
 
-    private float runSpeed = 6f;
-
-    public float sensitivity = 100f;
+    private float sensitivity = 100f;
 
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
@@ -21,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         character = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -29,7 +29,12 @@ public class CharacterMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = Input.GetAxisRaw("Mouse Y");
+
         float speed;
+
+        transform.Rotate(Vector3.up * mouseX);
 
         //Sprint
         if (Input.GetKey(KeyCode.LeftShift))
@@ -57,7 +62,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer) && character.isGrounded)
+        if (Physics.Raycast(character.transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
             Vector3 newPosition = transform.position;
             newPosition.y = hit.point.y;
