@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController character;
 
     private float walkSpeed = 4f;
-    private float runSpeed = 8f;
+    private float runSpeed = 6f;
 
     private float sensitivity = 100f;
 
@@ -30,7 +30,6 @@ public class CharacterMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         float mouseX = Input.GetAxisRaw("Mouse X");
-        float mouseY = Input.GetAxisRaw("Mouse Y");
 
         float speed;
 
