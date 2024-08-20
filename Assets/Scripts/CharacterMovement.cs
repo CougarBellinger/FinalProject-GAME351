@@ -21,7 +21,7 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        isWalking = (Vector3.magnitude(move) == 0);
+        //isWalking = (Vector3.magnitude(move) == 0);
 
         if (isWalking && Input.GetKey(KeyCode.LeftShift))
         {
