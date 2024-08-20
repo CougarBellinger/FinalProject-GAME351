@@ -34,6 +34,7 @@ public class CharacterMovement : MonoBehaviour
             isWalking = false;
         }
         
+        
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
