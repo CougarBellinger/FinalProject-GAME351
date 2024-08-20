@@ -9,7 +9,7 @@ public class fireSound : MonoBehaviour
     
     private AudioSource audioSource;
 
-    float maxDistance = 100;
+    public float maxDistance = 100;
     float realDistance = 0;
     float distanceFactor = 0;
 
