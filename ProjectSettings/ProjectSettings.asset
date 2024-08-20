@@ -699,11 +699,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 624cfaf7-ded9-4882-84da-87545a1ae7fe
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: FinalProject-GAME351
+  organizationId: mle4
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
