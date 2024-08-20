@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireSound : MonoBehaviour
+public class fireSound : MonoBehaviour
 {
     public AudioClip fireEffect;
     public GameObject tinyFire;
