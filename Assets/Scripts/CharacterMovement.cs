@@ -30,7 +30,6 @@ public class CharacterMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         float mouseX = Input.GetAxisRaw("Mouse X");
-        float mouseY = Input.GetAxisRaw("Mouse Y");
 
         float speed;
 
