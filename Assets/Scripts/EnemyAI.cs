@@ -14,6 +14,11 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private float timer;
     private float fixedHeight = 5f;
+    public Audio audioSource;
+    public AudioClip fightMusic;
+    private bool hasSwitchedToFightMusic = false;
+    public AudioClip defaultMusic;
+
 
     void Start()
     {
@@ -32,6 +37,7 @@ public class EnemyAI : MonoBehaviour
         {
             MoveTowards(targetPosition);
             RotateTowardsPlayer();
+        
         }
         else
         {
@@ -46,7 +52,16 @@ public class EnemyAI : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
+            if (hasSwitchedToFightMusic)
+            {
+                audioSource.Stop();
+                audioSource.clip = defaultMusic;
+                audioSource.loop = true;
+                audioSource.Play();
+                hasSwitchedToFightMusic = false;
+            }
         }
+        
 
         RotateGunJointTowardsPlayer();
         AlignGunWithGunJoint();
