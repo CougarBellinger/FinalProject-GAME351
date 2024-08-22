@@ -54,12 +54,7 @@ public class EnemyAI : MonoBehaviour
                 //newPos.y = fixedHeight;
                 navMeshAgent.SetDestination(newPos);
                 timer = wanderTimer;
-            }
-            else
-            {
-                timer -= Time.deltaTime;
-            }
-            if ((hasSwitchedToFightMusic) && (distanceToPlayer > detectionRadius))
+                if ((hasSwitchedToFightMusic) && (distanceToPlayer > 10))
             {
                 audioSource.Stop();
                 audioSource.clip = defaultMusic;
@@ -67,6 +62,36 @@ public class EnemyAI : MonoBehaviour
                 audioSource.Play();
                 hasSwitchedToFightMusic = false;
             }
+            }
+            else
+            {
+                timer -= Time.deltaTime;
+            }
+            #if true
+        //             {
+        //     //Debug.Log("Calling Update");
+        //     if ((Input.GetMouseButton(0)) || (Input.GetKeyDown(KeyCode.F)) || (Input.GetKeyDown(KeyCode.Q)))
+        //     {
+        //         if (!hasSwitchedToFightMusic)
+        //         {
+        //             SwitchToFightMusic();
+        //             hasSwitchedToFightMusic = true;
+    
+        //             Debug.Log("Invoked input");
+        //         }
+        //     }
+        //     else
+        //     {
+        //         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
+                
+        //         if ((hasSwitchedToFightMusic) && (distanceToPlayer > detectionRadius))
+        //         {
+        //             SwitchToDefaultMusic();
+        //             hasSwitchedToFightMusic = false;
+        //         }
+        //     }
+        // }
+            #endif
         }
 
         // RotateGunJointTowardsPlayer();
