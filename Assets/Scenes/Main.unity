@@ -11715,7 +11715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1837695732396528553, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
       propertyPath: bulletSpeed
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1837695732396528553, guid: 3fc233a9407d11f46a1983e4692babf9, type: 3}
       propertyPath: bulletPrefab
@@ -39165,6 +39165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformPos: {fileID: 472199523}
+  height: 2
 --- !u!1001 &1573102922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41892,7 +41893,7 @@ GameObject:
   m_TagString: WorldObjectHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1716271330
 Transform:
