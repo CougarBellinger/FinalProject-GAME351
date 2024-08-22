@@ -22,6 +22,8 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = player.transform;
         timer = wanderTimer;
+
+        agent.updateRotation = false;
     }
 
     void Update()
@@ -31,6 +33,7 @@ public class EnemyAI : MonoBehaviour
         if (distanceToPlayer <= detectionRadius)
         {
             agent.SetDestination(target.position);
+            RotateTowardsPlayer();
         }
         else
         {
@@ -50,11 +53,23 @@ public class EnemyAI : MonoBehaviour
         AlignGunWithGunJoint();
     }
 
+    void RotateTowardsPlayer()
+    {
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        directionToPlayer.y = 0;
+
+        if (directionToPlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
     void RotateGunJointTowardsPlayer()
     {
         Vector3 directionToPlayer = player.transform.position - gunJoint.transform.position;
 
-        if (directionToPlayer!= Vector3.zero)
+        if (directionToPlayer != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
             gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
@@ -63,7 +78,7 @@ public class EnemyAI : MonoBehaviour
 
     void AlignGunWithGunJoint()
     {
-        if (gunJoint!= null && gun!= null)
+        if (gunJoint != null)
         {
             gun.transform.rotation = gunJoint.transform.rotation;
         }
@@ -73,16 +88,8 @@ public class EnemyAI : MonoBehaviour
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
         randDirection += origin;
-
         NavMeshHit hit;
-
-        if (NavMesh.SamplePosition(randDirection, out hit, dist, NavMesh.AllAreas))
-        {
-            return hit.position;
-        }
-        else
-        {
-            return origin;
-        }
+        NavMesh.SamplePosition(randDirection, out hit, dist, NavMesh.AllAreas);
+        return hit.position;
     }
 }
