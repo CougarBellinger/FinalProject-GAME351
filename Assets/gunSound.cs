@@ -1,8 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Musket : MonoBehaviour
+public class gunSound : MonoBehaviour
 {
-    public ParticleSystem fireBurst;
     public AudioClip fireSound;
 
     private AudioSource audioSource;
@@ -16,11 +17,11 @@ public class Musket : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        //when gun trigger key is pressed
+        if (Input.GetKeyDown(KeyCode.F))
         {
             fireBurst.Play();
             audioSource.PlayOneShot(audioSource.clip);
             }
     }
 }
-
