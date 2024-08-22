@@ -1,36 +1,41 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
     public GameObject player;
+    private Transform target;
+
     public float wanderRadius;
     public float detectionRadius;
-    public float wanderTimer;
-    public GameObject gunJoint;
-    public GameObject gun;
+
+    private float wanderTimer = 1f;
+    private float timer;
+
     public float rotationSpeed = 5f;
     public float moveSpeed = 3f;
 
-    private Transform target;
-    private float timer;
     private float fixedHeight = 5f;
+    private NavMeshAgent navMeshAgent;
 
     void Start()
     {
         target = player.transform;
-        timer = wanderTimer;
+        timer = 0f;
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
         Vector3 targetPosition = player.transform.position;
-        targetPosition.y = fixedHeight;
+        // targetPosition.y = fixedHeight;
 
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer <= detectionRadius)
         {
-            MoveTowards(targetPosition);
+            navMeshAgent.SetDestination(targetPosition);
             RotateTowardsPlayer();
         }
         else
@@ -38,8 +43,8 @@ public class EnemyAI : MonoBehaviour
             if (timer <= 0)
             {
                 Vector3 newPos = RandomNavSphere(transform.position, wanderRadius);
-                newPos.y = fixedHeight;
-                MoveTowards(newPos);
+                //newPos.y = fixedHeight;
+                navMeshAgent.SetDestination(newPos);
                 timer = wanderTimer;
             }
             else
@@ -48,8 +53,8 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-        RotateGunJointTowardsPlayer();
-        AlignGunWithGunJoint();
+        // RotateGunJointTowardsPlayer();
+        // AlignGunWithGunJoint();
     }
 
     void MoveTowards(Vector3 targetPosition)
@@ -73,24 +78,24 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void RotateGunJointTowardsPlayer()
-    {
-        Vector3 directionToPlayer = target.position - gunJoint.transform.position;
+    // void RotateGunJointTowardsPlayer()
+    // {
+    //     Vector3 directionToPlayer = target.position - gunJoint.transform.position;
 
-        if (directionToPlayer != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-        }
-    }
+    //     if (directionToPlayer != Vector3.zero)
+    //     {
+    //         Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+    //         gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    //     }
+    // }
 
-    void AlignGunWithGunJoint()
-    {
-        if (gunJoint != null)
-        {
-            gun.transform.rotation = gunJoint.transform.rotation;
-        }
-    }
+    // void AlignGunWithGunJoint()
+    // {
+    //     if (gunJoint != null)
+    //     {
+    //         gun.transform.rotation = gunJoint.transform.rotation;
+    //     }
+    // }
 
     static Vector3 RandomNavSphere(Vector3 origin, float dist)
     {

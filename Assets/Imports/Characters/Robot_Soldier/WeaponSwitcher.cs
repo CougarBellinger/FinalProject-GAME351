@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    public GameObject sword;
+    //public GameObject sword;
     public GameObject shotgun;
     public GameObject defaultWeapon;
     private GameObject currentWeapon;
 
     void Start()
     {
-        sword.SetActive(false);
+        //sword.SetActive(false);
         shotgun.SetActive(false);
         defaultWeapon.SetActive(true);
         currentWeapon = defaultWeapon;
@@ -25,10 +25,10 @@ public class WeaponSwitcher : MonoBehaviour
         {
             SwitchWeapon(shotgun);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchWeapon(sword);
-        }
+        // else if (Input.GetKeyDown(KeyCode.Alpha3))
+        // {
+        //     SwitchWeapon(sword);
+        // }
     }
 
     void SwitchWeapon(GameObject newWeapon)
