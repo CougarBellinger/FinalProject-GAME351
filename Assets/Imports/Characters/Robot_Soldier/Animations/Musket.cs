@@ -21,25 +21,6 @@ public class Musket : MonoBehaviour
             fireBurst.Play();
             audioSource.PlayOneShot(audioSource.clip);
             }
-<<<<<<< Updated upstream
-=======
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            if (fireBurst.isPlaying)
-            {
-                fireBurst.Stop();
-            }
-            if (audioSource.isPlaying)
-            {
-                audioSource.Stop();
-            }
-        }
->>>>>>> Stashed changes
     }
 }
 
