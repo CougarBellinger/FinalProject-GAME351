@@ -6,12 +6,14 @@ public class CharacterAnimation : MonoBehaviour
 {
     public Animator playerAnim;
     public CharacterMovement playerMovement;
-    public bool isBusy;
+
+    private float normalSpeed = 1f;
+    private float runSpeed = 1.5f;
 
     void Update()
     {
 
-        if (!playerMovement.isWalking)
+        if (!playerMovement.isMoving)
         {
             playerAnim.SetTrigger("idle");
         }
@@ -107,10 +109,28 @@ public class CharacterAnimation : MonoBehaviour
             playerAnim.ResetTrigger("idle");
         }
 
-        if (Input.GetKeyUp(KeyCode.F)) //|| !playerAnim.IsPlaying("shotgunAttack"))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             playerAnim.ResetTrigger("shootShotgun");
         }
+
+        //*******************************
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (!playerAnim.GetCurrentAnimatorStateInfo(0).IsName("rifleAttack") ||
+                !playerAnim.GetCurrentAnimatorStateInfo(0).IsName("shotgunAttack") ||
+                !playerAnim.GetCurrentAnimatorStateInfo(0).IsName("swordAttack") ||
+                !playerAnim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+            {
+                playerAnim.speed = runSpeed;
+            }
+        }
+        else
+        {
+            playerAnim.speed = normalSpeed;
+        }
+
 
     }
 }
