@@ -2765,9 +2765,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4468519549282688}
   - component: {fileID: 95812470430208240}
-  - component: {fileID: 6335373460471604537}
+  - component: {fileID: 1837695732396528553}
   - component: {fileID: 7059313039079013974}
   - component: {fileID: 876764208762774571}
+  - component: {fileID: 6335373460471604537}
   - component: {fileID: 7376715312197540350}
   m_Layer: 0
   m_Name: Robot_Soldier_Blue
@@ -2819,7 +2820,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6335373460471604537
+--- !u!114 &1837695732396528553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2828,14 +2829,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997645269869836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a30f88ed0d0a1489ec3059e47ce123, type: 3}
+  m_Script: {fileID: 11500000, guid: 34a3a526cfad2644fbe5874227dc623c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 20
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 2147483647
-  isWalking: 0
+  bulletSpeed: 0
+  fireRate: 0
+  bulletDamage: 0
+  bulletSpawTransform: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!143 &7059313039079013974
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2868,6 +2869,24 @@ CapsuleCollider:
   m_Height: 1.7984827
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &6335373460471604537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997645269869836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a30f88ed0d0a1489ec3059e47ce123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckDistance: 20
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 2147483647
+  isMoving: 0
+  isRunning: 0
 --- !u!114 &7376715312197540350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,7 +2901,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 95812470430208240}
   playerMovement: {fileID: 6335373460471604537}
-  isBusy: 0
 --- !u!1 &5991152062859795902
 GameObject:
   m_ObjectHideFlags: 0
