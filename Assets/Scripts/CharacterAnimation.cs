@@ -8,71 +8,108 @@ public class CharacterAnimation : MonoBehaviour
     public CharacterMovement playerMovement;
     public bool isBusy;
 
-    void Update ()
+    void Update()
     {
 
-        if(!playerMovement.isWalking)
+        if (!playerMovement.isWalking)
         {
             playerAnim.SetTrigger("idle");
+        }
+        else
+        {
+            playerAnim.ResetTrigger("idle");
         }
 
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             playerAnim.SetTrigger("walkFront");
             playerAnim.ResetTrigger("idle");
         }
 
-        
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            playerAnim.ResetTrigger("walkFront");
+        }
+
+
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             playerAnim.SetTrigger("walkBack");
             playerAnim.ResetTrigger("idle");
         }
 
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            playerAnim.ResetTrigger("walkBack");
+        }
 
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             playerAnim.SetTrigger("walkLeft");
             playerAnim.ResetTrigger("idle");
         }
 
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            playerAnim.ResetTrigger("walkLeft");
+        }
 
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             playerAnim.SetTrigger("walkRight");
             playerAnim.ResetTrigger("idle");
         }
 
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            playerAnim.ResetTrigger("walkRight");
+        }
+
         //*******************************
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             playerAnim.SetTrigger("shootRifle");
             playerAnim.ResetTrigger("idle");
         }
 
+        if (Input.GetMouseButtonUp(0))
+        {
+            playerAnim.ResetTrigger("shootRifle");
+        }
+
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
             playerAnim.SetTrigger("useSword");
             playerAnim.ResetTrigger("idle");
         }
 
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            playerAnim.ResetTrigger("useSword");
+        }
+
         //*******************************
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKey(KeyCode.F))
         {
             playerAnim.SetTrigger("shootShotgun");
             playerAnim.ResetTrigger("idle");
+        }
+
+        if (Input.GetKeyUp(KeyCode.F)) //|| !playerAnim.IsPlaying("shotgunAttack"))
+        {
+            playerAnim.ResetTrigger("shootShotgun");
         }
 
     }
