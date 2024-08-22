@@ -20,7 +20,7 @@ public class gunSound : MonoBehaviour
         //when gun trigger key is pressed
         if (Input.GetKeyDown(KeyCode.F))
         {
-            fireBurst.Play();
+            //fireBurst.Play();
             audioSource.PlayOneShot(audioSource.clip);
             }
     }
