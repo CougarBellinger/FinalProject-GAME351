@@ -17,10 +17,12 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 3f;
 
     private float fixedHeight = 5f;
-    public Audio audioSource;
-    public AudioClip fightMusic;
+
+    //audio Source variables
+    private AudioSource audioSource;
     private bool hasSwitchedToFightMusic = false;
     public AudioClip defaultMusic;
+    public AudioClip fightMusic;
     private NavMeshAgent navMeshAgent;
 
 
@@ -57,7 +59,7 @@ public class EnemyAI : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
-            if (hasSwitchedToFightMusic)
+            if ((hasSwitchedToFightMusic) && (distanceToPlayer > detectionRadius))
             {
                 audioSource.Stop();
                 audioSource.clip = defaultMusic;
