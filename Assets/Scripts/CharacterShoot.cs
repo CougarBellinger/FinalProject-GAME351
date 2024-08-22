@@ -9,12 +9,19 @@ public class CharacterShoot : MonoBehaviour
     public float fireRate, bulletDamage;
 
     [Header("Initial Setup")]
-    public Transform bulletSpawTransform;
+    public Transform bulletSpawnTransform;
     public GameObject bulletPrefab;
+
+    private float timer;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime / fireRate;
+        }
+        if (Input.GetMouseButtonDown(0) && (timer <= 0))
         {
             Shoot();
         }
@@ -22,7 +29,9 @@ public class CharacterShoot : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawTransform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("WorldObjectHolder").transform);
-        bullet.GetComponent<Rigidbody>().AddForce(bulletSpawTransform.forward * bulletSpeed, ForceMode.Impulse);
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("WorldObjectHolder").transform);
+        bullet.GetComponent<Rigidbody>().AddForce(bulletSpawnTransform.forward * bulletSpeed, ForceMode.Impulse);
+
+        timer = 1;
     }
 }
