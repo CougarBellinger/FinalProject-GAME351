@@ -1,42 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent agent;
     public GameObject player;
     public float wanderRadius;
     public float detectionRadius;
     public float wanderTimer;
+    public GameObject gunJoint;
+    public GameObject gun;
+    public float rotationSpeed = 5f;
+    public float moveSpeed = 3f;
 
     private Transform target;
     private float timer;
+    private float fixedHeight = 5f;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         target = player.transform;
         timer = wanderTimer;
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+        Vector3 targetPosition = player.transform.position;
+        targetPosition.y = fixedHeight;
+
+        float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
 
         if (distanceToPlayer <= detectionRadius)
         {
-            // Player is in range, implement attack or chase behavior
-            // For example:
-            agent.SetDestination(target.position);
+            MoveTowards(targetPosition);
+            RotateTowardsPlayer();
         }
         else
         {
             if (timer <= 0)
             {
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-                agent.SetDestination(newPos);
+                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius);
+                newPos.y = fixedHeight;
+                MoveTowards(newPos);
                 timer = wanderTimer;
             }
             else
@@ -44,14 +47,55 @@ public class EnemyAI : MonoBehaviour
                 timer -= Time.deltaTime;
             }
         }
+
+        RotateGunJointTowardsPlayer();
+        AlignGunWithGunJoint();
     }
 
-    static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
+    void MoveTowards(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        direction.y = 0;
+        direction.Normalize();
+
+        transform.position += direction * moveSpeed * Time.deltaTime;
+    }
+
+    void RotateTowardsPlayer()
+    {
+        Vector3 directionToPlayer = target.position - transform.position;
+        directionToPlayer.y = 0;
+
+        if (directionToPlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    void RotateGunJointTowardsPlayer()
+    {
+        Vector3 directionToPlayer = target.position - gunJoint.transform.position;
+
+        if (directionToPlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    void AlignGunWithGunJoint()
+    {
+        if (gunJoint != null)
+        {
+            gun.transform.rotation = gunJoint.transform.rotation;
+        }
+    }
+
+    static Vector3 RandomNavSphere(Vector3 origin, float dist)
     {
         Vector3 randDirection = Random.insideUnitSphere * dist;
         randDirection += origin;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(randDirection, out hit, dist, NavMesh.AllAreas);
-        return hit.position;
+        return randDirection;
     }
 }

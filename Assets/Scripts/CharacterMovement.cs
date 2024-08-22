@@ -10,8 +10,6 @@ public class CharacterMovement : MonoBehaviour
     private float walkSpeed = 3f;
     private float runSpeed = 6f;
 
-    private float sensitivity = 100f;
-
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
 
@@ -63,6 +61,7 @@ public class CharacterMovement : MonoBehaviour
             isMoving = true;
         }
 
+        //move with terrain
         RaycastHit hit;
         if (Physics.Raycast(character.transform.position, Vector3.down, out hit, groundCheckDistance, groundLayer))
         {
