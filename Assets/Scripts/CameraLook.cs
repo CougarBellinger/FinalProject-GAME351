@@ -5,8 +5,8 @@ using Cinemachine;
 
 public class CameraLook : MonoBehaviour
 {
-    private float maxValue = 1.15f;
-    private float minValue = 1f;
+    private float maxValue = 1.10f;
+    private float minValue = 0.90f;
     private float currentValue;
     public float sensitivity = 1.5f;
     public CinemachineVirtualCamera cmVirtualCam;

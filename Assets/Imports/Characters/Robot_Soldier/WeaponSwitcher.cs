@@ -1,19 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WeaponSwitcher : MonoBehaviour
 {
     public GameObject sword;
     public GameObject shotgun;
     public GameObject defaultWeapon;
-
-    public Sprite swordSprite;
-    public Sprite shotgunSprite;
-    public Sprite defaultWeaponSprite;
-
     private GameObject currentWeapon;
-    private Transform RightHand;
-    private Image weaponUIImage;
 
     void Start()
     {
@@ -21,50 +13,36 @@ public class WeaponSwitcher : MonoBehaviour
         shotgun.SetActive(false);
         defaultWeapon.SetActive(true);
         currentWeapon = defaultWeapon;
-
-        RightHand = GameObject.Find("RightHand").transform;
-        weaponUIImage = GameObject.Find("Weapon").GetComponent<Image>();
-
-        weaponUIImage.sprite = defaultWeaponSprite;
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SwitchWeapon(defaultWeapon, defaultWeaponSprite);
+            SwitchWeapon(defaultWeapon);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SwitchWeapon(shotgun, shotgunSprite); 
+            SwitchWeapon(shotgun);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SwitchWeapon(sword, swordSprite);
+            SwitchWeapon(sword);
         }
-
-        FollowHand();
     }
 
-    void SwitchWeapon(GameObject newWeapon, Sprite newWeaponSprite)
+    void SwitchWeapon(GameObject newWeapon)
     {
+        if (currentWeapon == newWeapon)
+        {
+            return;
+        }
         if (currentWeapon != null)
         {
             currentWeapon.SetActive(false);
         }
-
         newWeapon.SetActive(true);
         currentWeapon = newWeapon;
-
-        weaponUIImage.sprite = newWeaponSprite;
-    }
-
-    void FollowHand()
-    {
-        if (currentWeapon != null)
-        {
-            currentWeapon.transform.position = RightHand.position;
-            currentWeapon.transform.rotation = RightHand.rotation;
-        }
     }
 }
+

@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject player;
     public float wanderRadius;
+    public float detectionRadius;
     public float wanderTimer;
 
     private Transform target;
@@ -24,11 +25,11 @@ public class EnemyAI : MonoBehaviour
     {
         float distanceToPlayer = Vector3.Distance(transform.position, target.position);
 
-        if (distanceToPlayer <= agent.stoppingDistance)
+        if (distanceToPlayer <= detectionRadius)
         {
             // Player is in range, implement attack or chase behavior
             // For example:
-            // agent.SetDestination(target.position);
+            agent.SetDestination(target.position);
         }
         else
         {
@@ -50,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 randDirection = Random.insideUnitSphere * dist;
         randDirection += origin;
         NavMeshHit hit;
-        NavMesh.SamplePosition(randDirection, out hit, dist, layermask);
+        NavMesh.SamplePosition(randDirection, out hit, dist, NavMesh.AllAreas);
         return hit.position;
     }
 }
