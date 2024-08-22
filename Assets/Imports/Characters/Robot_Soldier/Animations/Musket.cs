@@ -18,14 +18,9 @@ public class Musket : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (!fireBurst.isPlaying)
-            {
-                fireBurst.Play();
+            fireBurst.Play();
+            audioSource.PlayOneShot(audioSource.clip);
             }
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-        }
     }
 }
+
