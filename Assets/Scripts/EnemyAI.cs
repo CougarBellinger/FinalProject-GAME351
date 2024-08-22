@@ -1,101 +1,83 @@
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyShooting : MonoBehaviour
 {
-    public GameObject player;
-    public float wanderRadius;
-    public float detectionRadius;
-    public float wanderTimer;
-    public GameObject gunJoint;
-    public GameObject gun;
-    public float rotationSpeed = 5f;
-    public float moveSpeed = 3f;
+    public GameObject muzzleFlashEffect;
+    private EnemyAI enemyAI;
+    private ParticleSystem muzzleParticleSystem;
 
-    private Transform target;
-    private float timer;
-    private float fixedHeight = 5f;
-
-    void Start()
+    void StartFunction()
     {
-        target = player.transform;
-        timer = wanderTimer;
-    }
-
-    void Update()
-    {
-        Vector3 targetPosition = player.transform.position;
-        targetPosition.y = fixedHeight;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
-
-        if (distanceToPlayer <= detectionRadius)
+        if (muzzleFlashEffect!= null)
         {
-            MoveTowards(targetPosition);
-            RotateTowardsPlayer();
-        }
-        else
-        {
-            if (timer <= 0)
+            muzzleParticleSystem = muzzleFlashEffect.GetComponent<ParticleSystem>();
+            if (muzzleParticleSystem == null)
             {
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius);
-                newPos.y = fixedHeight;
-                MoveTowards(newPos);
-                timer = wanderTimer;
+                Debug.LogError("ParticleSystem component not found on muzzleFlashEffect.");
             }
             else
             {
-                timer -= Time.deltaTime;
+                muzzleParticleSystem.Stop();
             }
         }
-
-        RotateGunJointTowardsPlayer();
-        AlignGunWithGunJoint();
-    }
-
-    void MoveTowards(Vector3 targetPosition)
-    {
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0;
-        direction.Normalize();
-
-        transform.position += direction * moveSpeed * Time.deltaTime;
-    }
-
-    void RotateTowardsPlayer()
-    {
-        Vector3 directionToPlayer = target.position - transform.position;
-        directionToPlayer.y = 0;
-
-        if (directionToPlayer != Vector3.zero)
+        else
         {
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            Debug.LogError("muzzleFlashEffect is not assigned.");
+        }
+
+        enemyAI = GetComponent<EnemyAI>();
+        if (enemyAI == null)
+        {
+            Debug.LogError("EnemyAI component not found.");
         }
     }
 
-    void RotateGunJointTowardsPlayer()
+    void UpdateFunction()
     {
-        Vector3 directionToPlayer = target.position - gunJoint.transform.position;
-
-        if (directionToPlayer != Vector3.zero)
+        if (enemyAI!= null)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
-            gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            if (muzzleParticleSystem!= null)
+            {
+                bool isChasing = IsChasingPlayer();
+                if (isChasing)
+                {
+                    StartShooting();
+                }
+                else
+                {
+                    StopShooting();
+                }
+            }
         }
     }
 
-    void AlignGunWithGunJoint()
+    void StartShootingFunction()
     {
-        if (gunJoint != null)
+        if (muzzleParticleSystem!= null)
         {
-            gun.transform.rotation = gunJoint.transform.rotation;
+            if (!muzzleParticleSystem.isPlaying)
+            {
+                Debug.Log("Starting muzzle flash effect.");
+                muzzleParticleSystem.Play();
+            }
         }
     }
 
-    static Vector3 RandomNavSphere(Vector3 origin, float dist)
+    void StopShootingFunction()
     {
-        Vector3 randDirection = Random.insideUnitSphere * dist;
-        randDirection += origin;
-        return randDirection;
+        if (muzzleParticleSystem!= null)
+        {
+            if (muzzleParticleSystem.isPlaying)
+            {
+                Debug.Log("Stopping muzzle flash effect.");
+                muzzleParticleSystem.Stop();
+            }
+        }
+    }
+
+    bool IsChasingPlayerFunction()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, enemyAI.player.transform.position);
+        return distanceToPlayer <= enemyAI.detectionRadius;
     }
 }

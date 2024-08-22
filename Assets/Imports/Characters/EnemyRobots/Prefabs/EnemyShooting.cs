@@ -3,51 +3,70 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject muzzleFlashEffect;
-    private EnemyAI enemyAI;
+    private EnemyAI EnemyAI;
+    private ParticleSystem muzzleParticleSystem;
 
     void Start()
     {
-        if (muzzleFlashEffect != null)
+        if (muzzleFlashEffect == null)
         {
-            muzzleFlashEffect.SetActive(false);
+            Debug.LogError("muzzleFlashEffect is not assigned.");
+            return;
         }
 
+        muzzleParticleSystem = muzzleFlashEffect.GetComponent<ParticleSystem>();
+        if (muzzleParticleSystem == null)
+        {
+            Debug.LogError("ParticleSystem component not found on muzzleFlashEffect.");
+            return;
+        }
+
+        muzzleParticleSystem.Stop();
         enemyAI = GetComponent<EnemyAI>();
+        if (enemyAI == null)
+        {
+            Debug.LogError("EnemyAI component not found.");
+        }
     }
 
     void Update()
     {
-        if (enemyAI != null && muzzleFlashEffect != null)
+        if (enemyAI == null || muzzleFlashEffect == null || muzzleParticleSystem == null)
         {
-            if (IsChasingPlayer())
-            {
-                StartShooting();
-            }
-            else
-            {
-                StopShooting();
-            }
+            return;
+        }
+
+        if (IsChasingPlayer())
+        {
+            StartShooting();
+        }
+        else
+        {
+            StopShooting();
         }
     }
 
     void StartShooting()
     {
-        if (!muzzleFlashEffect.activeInHierarchy)
+        if (!muzzleParticleSystem.isPlaying)
         {
-            muzzleFlashEffect.SetActive(true);
+            Debug.Log("Starting muzzle flash effect.");
+            muzzleParticleSystem.Play();
         }
     }
 
     void StopShooting()
     {
-        if (muzzleFlashEffect.activeInHierarchy)
+        if (muzzleParticleSystem.isPlaying)
         {
-            muzzleFlashEffect.SetActive(false);
+            Debug.Log("Stopping muzzle flash effect.");
+            muzzleParticleSystem.Stop();
         }
     }
 
     bool IsChasingPlayer()
     {
-        return Vector3.Distance(transform.position, enemyAI.player.transform.position) <= enemyAI.detectionRadius;
+        float distanceToPlayer = Vector3.Distance(transform.position, enemyAI.player.transform.position);
+        return distanceToPlayer <= enemyAI.detectionRadius;
     }
 }
