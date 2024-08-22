@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     private CharacterController character;
 
-    private float walkSpeed = 4f;
+    private float walkSpeed = 3f;
     private float runSpeed = 6f;
 
     private float sensitivity = 100f;
@@ -15,7 +15,8 @@ public class CharacterMovement : MonoBehaviour
     public float groundCheckDistance = 20f;
     public LayerMask groundLayer;
 
-    public bool isWalking = false;
+    public bool isMoving = false;
+    public bool isRunning = false;
 
     void Start()
     {
@@ -39,10 +40,12 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = runSpeed;
+            isRunning = true;
         }
         else
         {
             speed = walkSpeed;
+            isRunning = false;
         }
 
         //Apply motion
@@ -53,11 +56,11 @@ public class CharacterMovement : MonoBehaviour
         //Determine bool of isWalking
         if (Mathf.Abs(character.velocity.magnitude) <= 0.001f)
         {
-            isWalking = false;
+            isMoving = false;
         }
         else
         {
-            isWalking = true;
+            isMoving = true;
         }
 
         RaycastHit hit;

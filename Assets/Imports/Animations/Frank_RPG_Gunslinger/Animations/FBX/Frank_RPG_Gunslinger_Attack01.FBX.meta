@@ -600,8 +600,8 @@ ModelImporter:
       name: Gunslinger_Attack01
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 70
+      firstFrame: 5
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
