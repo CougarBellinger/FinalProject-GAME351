@@ -14,10 +14,12 @@ public class EnemyAI : MonoBehaviour
     private Transform target;
     private float timer;
     private float fixedHeight = 5f;
-    public Audio audioSource;
-    public AudioClip fightMusic;
+
+    //audio Source variables
+    private AudioSource audioSource;
     private bool hasSwitchedToFightMusic = false;
     public AudioClip defaultMusic;
+    public AudioClip fightMusic;
 
 
     void Start()
@@ -52,7 +54,7 @@ public class EnemyAI : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
-            if (hasSwitchedToFightMusic)
+            if ((hasSwitchedToFightMusic) && (distanceToPlayer > detectionRadius))
             {
                 audioSource.Stop();
                 audioSource.clip = defaultMusic;
