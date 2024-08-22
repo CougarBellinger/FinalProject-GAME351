@@ -5,15 +5,11 @@ using UnityEngine;
 public class Translate : MonoBehaviour
 {
     public Transform transformPos;
-
-    void Start()
-    {
-
-    }
+    public float height;
 
     void Update()
     {
-        transform.position = transformPos.position;
-        transform.rotation = Quaternion.LookRotation(transformPos.forward, transformPos.up);
+        transform.position = transformPos.position + (Vector3.up * (height * 0.4f));
+        transform.rotation = transformPos.rotation;
     }
 }
