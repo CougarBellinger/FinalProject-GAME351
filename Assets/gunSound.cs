@@ -21,7 +21,12 @@ public class gunSound : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             //fireBurst.Play();
-            audioSource.PlayOneShot(audioSource.clip);
+            if(audioSource.isPlaying)
+            {
+                audioSource.Stop();
             }
+            audioSource.PlayOneShot(audioSource.clip);
+        }
+
     }
 }
