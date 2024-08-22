@@ -36,7 +36,8 @@ public class EnemyShooting : MonoBehaviour
             return;
         }
 
-        if (IsChasingPlayer())
+        bool isChasing = IsChasingPlayer();
+        if (isChasing)
         {
             StartShooting();
         }
