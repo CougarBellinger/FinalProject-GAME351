@@ -7550,8 +7550,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a9dbf278edecd542a1e8687f1a4e013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1002657116}
+  robot: {fileID: 1063945575}
   defaultMusic: {fileID: 8300000, guid: fe0505420f7d9b943b7429f36219721c, type: 3}
   fightMusic: {fileID: 8300000, guid: 1ffb1aba23ac54d25a85217098f54aab, type: 3}
+  detectionRadius: 0
 --- !u!82 &300464462
 AudioSource:
   m_ObjectHideFlags: 0
@@ -23205,7 +23208,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07741949, y: 0.01978784, z: -0.0015368807, w: 0.9968011}
+  m_LocalRotation: {x: 0.07741947, y: 0.019795591, z: -0.0015374828, w: 0.9968009}
   m_LocalPosition: {x: 246.46, y: 1.7820001, z: 202.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49927,7 +49930,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005256283}
-  m_LocalRotation: {x: 0.07741949, y: 0.01978784, z: -0.0015368807, w: 0.9968011}
+  m_LocalRotation: {x: 0.07741947, y: 0.019795591, z: -0.0015374828, w: 0.9968009}
   m_LocalPosition: {x: 0, y: 2.3200002, z: -2.399994}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
