@@ -14,10 +14,9 @@ public class Translate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this.transform.position = this.transform.right + transformPos.position.z + 0.1f;
+        this.transform.translation(transformPos.position.forward);
 
-        this.transform.rotation = transformPos.rotation;
-
+        this.transform.rotation(transformPos.position.up);
         //this.transform.position.x = transformPos.position.x;
     }
 }
