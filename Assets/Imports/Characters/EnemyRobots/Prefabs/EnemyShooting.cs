@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public GameObject muzzleFlashEffect;
-    private EnemyAI EnemyAI;
+    private EnemyAI enemyAI;
     private ParticleSystem muzzleParticleSystem;
 
     void Start()
