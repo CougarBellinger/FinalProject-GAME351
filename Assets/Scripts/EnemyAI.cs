@@ -10,6 +10,10 @@ public class EnemyAI : MonoBehaviour
     public float wanderRadius;
     public float detectionRadius;
     public float wanderTimer;
+    public GameObject gunJoint;
+    public GameObject gun;
+
+    public float rotationSpeed = 5f;
 
     private Transform target;
     private float timer;
@@ -19,6 +23,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = player.transform;
         timer = wanderTimer;
+        agent.updateRotation = false;
     }
 
     void Update()
@@ -27,9 +32,8 @@ public class EnemyAI : MonoBehaviour
 
         if (distanceToPlayer <= detectionRadius)
         {
-            // Player is in range, implement attack or chase behavior
-            // For example:
             agent.SetDestination(target.position);
+            RotateTowardsPlayer();
         }
         else
         {
@@ -43,6 +47,40 @@ public class EnemyAI : MonoBehaviour
             {
                 timer -= Time.deltaTime;
             }
+        }
+
+        RotateGunJointTowardsPlayer();
+        AlignGunWithGunJoint();
+    }
+
+    void RotateTowardsPlayer()
+    {
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        directionToPlayer.y = 0;
+
+        if (directionToPlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    void RotateGunJointTowardsPlayer()
+    {
+        Vector3 directionToPlayer = player.transform.position - gunJoint.transform.position;
+
+        if (directionToPlayer != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+            gunJoint.transform.rotation = Quaternion.Slerp(gunJoint.transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    void AlignGunWithGunJoint()
+    {
+        if (gunJoint != null && gun != null)
+        {
+            gun.transform.rotation = gunJoint.transform.rotation;
         }
     }
 
