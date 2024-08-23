@@ -24367,7 +24367,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.07741791, y: 0.02078619, z: -0.0016144204, w: 0.99678075}
+  m_LocalRotation: {x: 0.077421956, y: 0.018116549, z: -0.001407075, w: 0.99683285}
   m_LocalPosition: {x: 246.46, y: 1.7820001, z: 202.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27842,6 +27842,10 @@ PrefabInstance:
       propertyPath: gunJoint
       value: 
       objectReference: {fileID: 1645992060}
+    - target: {fileID: 8679195763183164221, guid: 9c49b9c1648647e47be8167f82a5f87e, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8679195763183164221, guid: 9c49b9c1648647e47be8167f82a5f87e, type: 3}
       propertyPath: fightMusic
       value: 
@@ -51605,7 +51609,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2005256283}
-  m_LocalRotation: {x: 0.07741791, y: 0.02078619, z: -0.0016144204, w: 0.99678075}
+  m_LocalRotation: {x: 0.077421956, y: 0.018116549, z: -0.001407075, w: 0.99683285}
   m_LocalPosition: {x: 0, y: 2.3200002, z: -2.399994}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
