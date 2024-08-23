@@ -61,6 +61,7 @@ public class EnemyAI : MonoBehaviour
                     hasSwitchedToFightMusic = false;
                 }
             }
+
             else
             {
                 timer -= Time.deltaTime;
