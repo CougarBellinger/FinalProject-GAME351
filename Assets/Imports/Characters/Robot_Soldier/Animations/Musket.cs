@@ -11,7 +11,6 @@ public class Musket : MonoBehaviour
     {
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = fireSound;
-        audioSource.loop = true;
     }
 
     void Update()

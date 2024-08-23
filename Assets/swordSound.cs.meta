@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 6df4ee39887e8486d862e18f0661f53a
+guid: b6220c68e267aae4fa5af8482cf15617
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - shotgun: {fileID: 919132149155446097, guid: e00b27b8d9c47264ab84203ddf941b2c, type: 3}
-  - defaultWeapon: {instanceID: 0}
+  - swipeSound: {fileID: 8300000, guid: c2dade153431323449798d5d5fd92ee4, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

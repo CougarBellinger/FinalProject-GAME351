@@ -2,24 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gunSound : MonoBehaviour
+public class swordSound : MonoBehaviour
 {
-    public AudioClip fireSound;
+    public AudioClip swipeSound;
 
     private AudioSource audioSource;
 
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = fireSound;
+        audioSource.clip = swipeSound;
     }
 
     void Update()
     {
-        //when gun trigger key is pressed
-        if (Input.GetKeyDown(KeyCode.F))
+        //when sword trigger key is pressed
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            //fireBurst.Play();
             audioSource.PlayOneShot(audioSource.clip);
         }
 
