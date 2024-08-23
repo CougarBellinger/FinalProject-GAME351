@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.vsconfig
+/Packages/com.merry-yellow.code-assist/Tools~
+/Packages/com.merry-yellow.code-assist
+/Packages/packages-lock.json
