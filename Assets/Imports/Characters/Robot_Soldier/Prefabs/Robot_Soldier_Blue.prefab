@@ -2832,11 +2832,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a3a526cfad2644fbe5874227dc623c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
-  fireRate: 0
-  bulletDamage: 0
-  bulletSpawTransform: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletSpeed: 15
+  fireRate1: 0
+  fireRate2: 0
+  bulletDamage: 5
+  bulletSpawnTransform: {fileID: 0}
+  bulletPrefab: {fileID: 5583194717132800942, guid: dcad13c593f60b14a829c3a0b1b993b1, type: 3}
 --- !u!143 &7059313039079013974
 CharacterController:
   m_ObjectHideFlags: 0

@@ -16,8 +16,6 @@ public class EnemyAI : MonoBehaviour
     public float rotationSpeed = 5f;
     public float moveSpeed = 3f;
 
-    private float fixedHeight = 5f;
-
     //audio Source variables
     private AudioSource audioSource;
     private bool hasSwitchedToFightMusic = false;

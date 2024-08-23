@@ -2,18 +2,20 @@ using UnityEngine;
 
 public class WeaponSwitcher : MonoBehaviour
 {
-    //public GameObject sword;
     public GameObject shotgun;
     public GameObject defaultWeapon;
     public GameObject sword;
+
     private GameObject currentWeapon;
 
     void Start()
     {
-        //sword.SetActive(false);
+        sword.SetActive(false);
         shotgun.SetActive(false);
-        defaultWeapon.SetActive(true);
-        currentWeapon = defaultWeapon;
+        defaultWeapon.SetActive(false);
+        currentWeapon = null;
+
+        SwitchWeapon(defaultWeapon);
     }
 
     void Update()
@@ -27,13 +29,13 @@ public class WeaponSwitcher : MonoBehaviour
             SwitchWeapon(shotgun);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3)){
-             SwitchWeapon(sword);
-         }
+            SwitchWeapon(sword);
+        }
     }
 
     void SwitchWeapon(GameObject newWeapon)
     {
-        if (currentWeapon == newWeapon)
+        if (GameObject.ReferenceEquals(currentWeapon, newWeapon))
         {
             return;
         }
