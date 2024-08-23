@@ -31,7 +31,7 @@ public class CharacterShoot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("WorldObjectHolder").transform);
         bullet.GetComponent<Rigidbody>().AddForce(bulletSpawnTransform.forward * bulletSpeed, ForceMode.Impulse);
-        bullet.GetComponent<Bullet>().damage = bulletDamage; 
+        bullet.GetComponent<AllyBullet>().damage = bulletDamage; 
 
         timer = 1;
     }

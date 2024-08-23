@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8186208927859257480}
   - component: {fileID: 9062727383354212926}
   m_Layer: 6
-  m_Name: Bullet
+  m_Name: AllyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,5 +128,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb060ab02c73dc742b9eeade7701c12c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   lifeTime: 3
