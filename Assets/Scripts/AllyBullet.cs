@@ -6,6 +6,7 @@ public class AllyBullet : MonoBehaviour
 {
     public float damage;
     public float lifeTime = 3f;
+    public AudioSource audioSource;
 
    private void Update()
     {
@@ -14,6 +15,7 @@ public class AllyBullet : MonoBehaviour
         if (lifeTime < 0f)
         {
             Destroy(gameObject);
+
         }
     }
 
@@ -23,6 +25,7 @@ public class AllyBullet : MonoBehaviour
         {
             other.GetComponent<EnemyRobot>().health -= damage;
             //Sound effect for hurt
+            
         }
 
         Destroy(gameObject);
