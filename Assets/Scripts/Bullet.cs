@@ -5,20 +5,25 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage;
-    public float lifeTime = 3;
+    public float lifeTime = 3f;
 
    private void Update()
     {
         lifeTime -= Time.deltaTime;
         
-        if (lifeTime < 0)
+        if (lifeTime < 0f)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter (Collider other)
     {
+        if(other.GetComponent<EnemyRobot>() != null)
+        {
+            other.GetComponent<EnemyRobot>().health -= damage;
+        }
+
         Destroy(gameObject);
     }
 }

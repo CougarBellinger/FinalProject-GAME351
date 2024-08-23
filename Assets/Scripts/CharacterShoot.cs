@@ -17,11 +17,11 @@ public class CharacterShoot : MonoBehaviour
     private void Update()
     {
 
-        if (timer > 0)
+        if (timer > 0f)
         {
             timer -= Time.deltaTime / fireRate;
         }
-        if (Input.GetMouseButtonDown(0) && (timer <= 0))
+        if (Input.GetMouseButtonDown(0) && (timer <= 0f))
         {
             Shoot();
         }
@@ -31,6 +31,7 @@ public class CharacterShoot : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("WorldObjectHolder").transform);
         bullet.GetComponent<Rigidbody>().AddForce(bulletSpawnTransform.forward * bulletSpeed, ForceMode.Impulse);
+        bullet.GetComponent<Bullet>().damage = bulletDamage; 
 
         timer = 1;
     }
