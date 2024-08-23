@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         if(other.GetComponent<EnemyRobot>() != null)
         {
             other.GetComponent<EnemyRobot>().health -= damage;
+            //Sound effect for hurt
         }
 
         Destroy(gameObject);

@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     private bool hasSwitchedToFightMusic = false;
     public AudioClip defaultMusic;
     public AudioClip fightMusic;
+
     private NavMeshAgent navMeshAgent;
 
 

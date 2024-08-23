@@ -11,6 +11,7 @@ public class EnemyRobot : MonoBehaviour
         if(health <= 0f)
         {
             Destroy(gameObject); 
+            //death sound effect ater dying
         }
     }
 }
