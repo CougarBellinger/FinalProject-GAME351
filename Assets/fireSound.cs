@@ -6,9 +6,6 @@ public class fireSound : MonoBehaviour
     public GameObject tinyFire;
 
     private AudioSource audioSource;
-
-    public float positionThreshold = 0.05f;
-
     void Start()
     {
         if (tinyFire != null)
@@ -28,26 +25,7 @@ public class fireSound : MonoBehaviour
 
     void Update()
     {
-        if (tinyFire != null)
-        {
-            Vector3 positionDifference = transform.position - tinyFire.transform.position;
+        
+            }
+ }
 
-            if (Mathf.Abs(positionDifference.x) > positionThreshold || 
-                Mathf.Abs(positionDifference.y) > positionThreshold || 
-                Mathf.Abs(positionDifference.z) > positionThreshold)
-            {
-                if (audioSource.isPlaying)
-                {
-                    audioSource.Stop();
-                }
-            }
-            else
-            {
-                if (!audioSource.isPlaying)
-                {
-                    audioSource.Play();
-                }
-            }
-        }
-    }
-}
