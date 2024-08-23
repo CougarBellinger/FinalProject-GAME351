@@ -11,7 +11,9 @@ Left Click for Musket Trigger: Use your musket for long-range precision shots.
 
 **Known Issues**
 Graveyard Area Bug: The character currently cannot walk into the graveyard. This will be addressed in future updates.
-Weapon Switching Bug: There are occasional issues with switching between weapons, causing delays or the wrong weapon to be selected. We are working on a fix.
+Damage Issue: Only one weapon currently does damage
+CutScene Issue: Full Project is in Main branch with cutscene that is able to flow into gameplay. Working game is in "Working-Branch-2" with ther rest of the features 
+
 
 **How to Play**
 Movement: Use WASD to navigate through the game world.
