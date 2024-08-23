@@ -13,6 +13,7 @@ Left Click for Musket Trigger: Use your musket for long-range precision shots.
 Graveyard Area Bug: The character currently cannot walk into the graveyard. This will be addressed in future updates.
 Damage Issue: Only one weapon currently does damage
 CutScene Issue: Camera does not pan around the map
+Win Condition: No Win condition. Infinite Spawn with no end
 
 
 **How to Play**
