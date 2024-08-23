@@ -6,7 +6,9 @@ using UnityEngine;
 public class BGM : MonoBehaviour
 {
     public GameObject player;
+    public GameObject robot;
     private Transform target;
+    private Transform enemy;
     public AudioClip defaultMusic;
     public AudioClip fightMusic;
 
@@ -21,8 +23,11 @@ public class BGM : MonoBehaviour
     // Update is called once per frame
     void Update(){
         Vector3 targetPosition = player.transform.position;
+        Vector3 enemyPosition = enemy.transform.position;
         // targetPosition.y = fixedHeight;
         float distanceToPlayer = Vector3.Distance(transform.position, targetPosition);
+        float distanceToEnemy = Vector3.Distance(transform.position, enemyPosition);
+
         if ((Input.GetMouseButton(0)) || (Input.GetKeyDown(KeyCode.F)) || (Input.GetKeyDown(KeyCode.Q)))
         {
             if (!hasSwitchedToFightMusic)
@@ -33,7 +38,7 @@ public class BGM : MonoBehaviour
         }
         else
         {
-            if ((hasSwitchedToFightMusic) && (distanceToPlayer > 10))
+            if ((hasSwitchedToFightMusic) && (distanceToEnemy > 20))
             {
                 SwitchToDefaultMusic();
                 hasSwitchedToFightMusic = false;
@@ -82,7 +87,8 @@ public class BGM : MonoBehaviour
 
     private void Awake()
     {
-
+        target = player.transform;
+        enemy = robot.transform;
         audioSource = GetComponent<AudioSource>();
         if (defaultMusic != null)
         {

@@ -5,6 +5,7 @@ public class WeaponSwitcher : MonoBehaviour
     //public GameObject sword;
     public GameObject shotgun;
     public GameObject defaultWeapon;
+    public GameObject sword;
     private GameObject currentWeapon;
 
     void Start()
@@ -25,10 +26,9 @@ public class WeaponSwitcher : MonoBehaviour
         {
             SwitchWeapon(shotgun);
         }
-        // else if (Input.GetKeyDown(KeyCode.Alpha3))
-        // {
-        //     SwitchWeapon(sword);
-        // }
+        else if (Input.GetKeyDown(KeyCode.Alpha3)){
+             SwitchWeapon(sword);
+         }
     }
 
     void SwitchWeapon(GameObject newWeapon)
