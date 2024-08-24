@@ -19,7 +19,7 @@ public class Musket : MonoBehaviour
         {
             fireBurst.Play();
             audioSource.PlayOneShot(audioSource.clip);
-            }
+        }
     }
 }
 
