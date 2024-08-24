@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public AudioClip fightMusic;
 
     private NavMeshAgent navMeshAgent;
+    private Vector3 selfTransform;
 
 
     void Start()
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
         target = player.transform;
         timer = 0f;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        selfTransform = transform.position;
     }
 
     void Update()
@@ -48,7 +50,7 @@ public class EnemyAI : MonoBehaviour
         {
             if (timer <= 0)
             {
-                Vector3 newPos = RandomNavSphere(transform.position, wanderRadius);
+                Vector3 newPos = RandomNavSphere(selfTransform, wanderRadius);
                 navMeshAgent.SetDestination(newPos);
                 timer = wanderTimer;
 
