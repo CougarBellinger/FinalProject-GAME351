@@ -1,30 +1,25 @@
-Game Title: Mechanical Hunter
-Overview
+# Game Title: Mechanical Hunter
+### Overview
 Welcome to Mechanical Hunter, an action-packed adventure where you wield a variety of weapons to defeat your enemies. This game challenges your reflexes and strategic thinking as you switch between different weapons on the fly. Dive in and conquer the battleground!
 
-**Controls**
+### **Controls**
 Movement: Use WASD keys to move your character.
 F or Sword Trigger: Activate your sword for close combat.
 Q for Shotgun Trigger: Switch to your shotgun for mid-range attacks.
 Left Click for Musket Trigger: Use your musket for long-range precision shots.
 
 
-**Known Issues**
-Graveyard Area Bug: The character currently cannot walk into the graveyard. This will be addressed in future updates.
-Damage Issue: Only one weapon currently does damage
-CutScene Issue: Camera does not pan around the map
-Win Condition: No Win condition. Infinite Spawn with no end
+### **Known Issues**
+- Graveyard Area Bug: The character currently cannot walk into the graveyard. This will be addressed in future updates.
+- Damage Issue: Only one weapon currently does damage
+- Sound is cut early in the cutscene
 
-
-**How to Play**
+### **How to Play**
 Movement: Use WASD to navigate through the game world.
 Combat: Use the appropriate weapon trigger for different types of enemies and situations.
 Strategy: Switch weapons efficiently to handle various enemy types and challenges.
 
-**Future Updates**
-We are continually working on improving the game. Stay tuned for updates that will fix bugs, introduce new features, and enhance gameplay.
-
-**Packages**
+### **Packages**
   "dependencies": {
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.15.18",
