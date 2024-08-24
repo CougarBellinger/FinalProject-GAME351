@@ -28,7 +28,7 @@ public class WinCondition : MonoBehaviour
             winOverlay.SetActive(true);
             player.SetActive(false);
 
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.E))
             {
                 Application.Quit();
             }

@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
 
     private CharacterController character;
 
-    private float walkSpeed = 3f;
+    private float walkSpeed = 4f;
     private float runSpeed = 6f;
 
     public float groundCheckDistance = 20f;

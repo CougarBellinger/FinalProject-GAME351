@@ -10423,7 +10423,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934111147742088}
-  - component: {fileID: 4664101748051842937}
   - component: {fileID: 7278003892570010430}
   - component: {fileID: 8679195763183164221}
   - component: {fileID: 2936048879816824431}
@@ -10431,6 +10430,7 @@ GameObject:
   - component: {fileID: 4331018302483234133}
   - component: {fileID: 8458836191731674016}
   - component: {fileID: 2105002326376674832}
+  - component: {fileID: 1780539009469983457}
   m_Layer: 0
   m_Name: MachineGunRobot
   m_TagString: Untagged
@@ -10456,26 +10456,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
---- !u!95 &4664101748051842937
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1931324583949736}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!195 &7278003892570010430
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -10511,12 +10491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  wanderRadius: 0
-  detectionRadius: 0
+  wanderRadius: 40
+  detectionRadius: 16
   rotationSpeed: 5
-  moveSpeed: 3
-  defaultMusic: {fileID: 0}
-  fightMusic: {fileID: 0}
+  moveSpeed: 1
+  defaultMusic: {fileID: 8300000, guid: fe0505420f7d9b943b7429f36219721c, type: 3}
+  fightMusic: {fileID: 8300000, guid: 1ffb1aba23ac54d25a85217098f54aab, type: 3}
 --- !u!114 &2936048879816824431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10749,3 +10729,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!136 &1780539009469983457
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931324583949736}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.77
+  m_Height: 3.39
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.02, z: 0}

@@ -9,8 +9,9 @@ public class Musket : MonoBehaviour
 
     void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.clip = fireSound;
+        // audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
+        // audioSource.clip = fireSound;
     }
 
     void Update()
